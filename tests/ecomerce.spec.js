@@ -12,7 +12,7 @@ function runTests(data) {
     const signinPage = new SiginPage(page);
     await signinPage.goto();
     await signinPage.Gotosigin();  //primero voy a la pagina de registro
-    //await expect(page.locator('#content')).toContainText('Register Account');// esto lo detecto la ia
+    await expect(page.locator('#content')).toContainText('Register Account');// esto lo detecto la ia
     await signinPage.Fillform(data); //primero realizo el signin
     await expect(page.locator('#content')).toContainText('Congratulations! Your new account has been successfully created!');
   });
@@ -20,7 +20,7 @@ function runTests(data) {
   test(`login/out ${data.email}`, async function ({ page }) {
     const loginPage = new LoginPage(page); 
     await loginPage.logout(); // me deslogueo
-    //await expect(page.locator('#content')).toContainText('You have been logged off your account. It is now safe to leave the computer.');
+    await expect(page.locator('#content')).toContainText('You have been logged off your account. It is now safe to leave the computer.');
     await loginPage.login(data.email, data.password); // realizo el login
     await expect(page.getByRole('heading', { name: 'My Account' })).toBeVisible();
   });
