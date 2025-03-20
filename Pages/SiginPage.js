@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-
+import log from 'loglevel';
 class SiginPage {
   constructor(page) {
     this.page = page;

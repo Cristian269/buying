@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { SiginPage } from '../Pages/SiginPage.js';
+
 import { LoginPage } from '../Pages/LoginPage.js';
 import testData from '../data/testData.json';
 
@@ -9,8 +9,8 @@ test.use({
 
 function runTests(data) {
   test(`sign in ${data.email}`, async function ({ page }) {
-    const signinPage = new SiginPage(page);
-    await signinPage.goto();
+   
+    //await signinPage.goto();
     await signinPage.Gotosigin();  //primero voy a la pagina de registro
     await expect(page.locator('#content')).toContainText('Register Account');// esto lo detecto la ia
     await signinPage.Fillform(data); //primero realizo el signin

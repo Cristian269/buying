@@ -1,0 +1,7 @@
+Primero, el asistente se dirige a la página donde los nuevos usuarios pueden registrarse para crear una cuenta. Allí, llena un formulario con la información necesaria, como el correo electrónico y otros datos. Una vez completado el registro, verifica que todo haya salido bien y que el sistema confirme que la cuenta se ha creado exitosamente.
+
+Después de registrarse, el asistente también se asegura de que pueda cerrar sesión sin problemas. Luego, intenta iniciar sesión nuevamente con la misma información que utilizó al registrarse. Al finalizar este proceso, comprueba que la página muestre su cuenta correctamente, asegurándose de que todo funcione como debería.
+
+First, the script goes to the page where new users can sign up to create an account. There, they fill out a form with the necessary information, such as email and other details. Once the registration is complete, they verify that everything went well and that the system confirms that the account has been successfully created.
+
+After registering, the assistant also ensures that they can log out without any issues. Then, they try to log in again with the same information used during registration. At the end of this process, they check that the page displays their account correctly, making sure everything works as it should.
