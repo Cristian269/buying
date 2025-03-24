@@ -7,13 +7,17 @@ class SiginPage {
     this.lastName = page.getByRole('textbox', { name: '* Last Name' });
     this.email = page.getByRole('textbox', { name: '* E-Mail' });
     this.telephone = page.getByRole('textbox', { name: '* Telephone' });
-    this.password = page.getByRole('textbox', { name: '* Password' });
+    this.password = page.getByRole('textbox', { name: '* Password', exact: true });
     this.passwordconfirm = page.getByRole('textbox', { name: '* Password Confirm' });
     this.suscribecheck = page.getByRole('radio', { name: 'Yes' });
-    this.privacycheck = page.getByRole('button', { name: 'Continue' });
+    this.privacycheck = page.getByRole('checkbox');
     this.myaccount = page.getByRole('link', { name: ' My Account' });
     this.combobox = page.locator('#top-links').getByRole('link', { name: 'My Account', exact: true });
     this.register = page.getByRole('link', { name: 'Register' });
+    this.gotohome = page.locator('#content').getByRole('heading', { name: 'Featured' });
+    this.expectedform = page.getByText('Your Personal Details')
+    this.buttonform = page.getByRole('button', { name: 'Continue' });
+    //getByText('Your Personal Details')
   }
 
   async goto() {
@@ -23,7 +27,7 @@ class SiginPage {
   async Gotosigin() {
     await this.myaccount.click();
     await  this.register.click();
-    log.info('Attempting to log in with email:', email);
+    log.info('Attempting to log in with email:', this.email);
   }
 
   async Fillform(data) {
@@ -35,6 +39,7 @@ class SiginPage {
     await this.passwordconfirm.fill(data.password);
     await this.suscribecheck.check();
     await this.privacycheck.click();
+    await this.buttonform.click(); 
     log.info('Form filled', data.email);
   }
 }

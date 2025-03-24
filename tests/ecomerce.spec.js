@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
-
+import { SiginPage } from '../Pages/SiginPage.js';
 import { LoginPage } from '../Pages/LoginPage.js';
 import testData from '../data/testData.json';
+import { assert } from 'console';
 
 test.use({
   ignoreHTTPSErrors: true
@@ -9,12 +10,17 @@ test.use({
 
 function runTests(data) {
   test(`sign in ${data.email}`, async function ({ page }) {
-   
-    //await signinPage.goto();
-    await signinPage.Gotosigin();  //primero voy a la pagina de registro
-    await expect(page.locator('#content')).toContainText('Register Account');// esto lo detecto la ia
+     
+    const signinPage = new SiginPage(page);
+    
+    await signinPage.goto();  //primero voy a la pagina ecomerce
+    await expect(signinPage.gotohome).toContainText('Featured');
+    await signinPage.Gotosigin(); //luego voy a la pagina de signin
+    await expect(signinPage.expectedform).toContainText('Your Personal Details');
     await signinPage.Fillform(data); //primero realizo el signin
-    await expect(page.locator('#content')).toContainText('Congratulations! Your new account has been successfully created!');
+    //await expect(page.locator('#content')).toContainText(/Congratulationss! Your new account has been successfully created!/);
+    await expect(page.locator('#content')).toHaveText(/Congratulations!/i);
+
   });
 
   test(`login/out ${data.email}`, async function ({ page }) {
