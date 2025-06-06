@@ -8,11 +8,22 @@ class LoginPage {
     this.password = page.getByRole('textbox', { name: 'Password' });
     this.loginButton = page.getByRole('button', { name: 'Login' });
     this.logoutButton = page.getByRole('link', { name: 'Logout' });
+    this.accountlink = page.getByRole ('link',{name:' My Account'});
+    this.tologinpagelink = page.getByRole('link',{ name:'Login' });
     log.setLevel('info'); // Set log level to info
-  }
+}
+    async gotologinPage() {
+    await this.accountlink.click();
+    await this.tologinpagelink.click();
+    log.info('Navigated to login page');
+    }
+ 
 
-  async login(email, password) {
-    log.info('Attempting to log in with email:', email);
+    async login(email, password) {
+    //await this.accountlink.click();
+    //await this.tologinpagelink.click();
+    //expect(this.page.url()).toContain('login'); // Ensure we are on the login page
+ 
     await this.email.fill(email);
     await this.password.fill(password);
     await this.loginButton.click();

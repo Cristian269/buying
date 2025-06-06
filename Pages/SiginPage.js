@@ -30,6 +30,18 @@ class SiginPage {
     log.info('Attempting to log in with email:', this.email);
   }
 
+  /*async Fillform(data) {
+    await this.firstName.fill(data.firstName);
+    await this.lastName.fill(data.lastName);
+    await this.email.fill(data.email);
+    await this.telephone.fill(data.telephone);
+    await this.password.fill(data.password);
+    await this.passwordconfirm.fill(data.password);
+    await this.suscribecheck.check();
+    await this.privacycheck.click();
+    await this.buttonform.click(); 
+    log.info('Form filled', data.email);
+  }*/
   async Fillform(data) {
     await this.firstName.fill(data.firstName);
     await this.lastName.fill(data.lastName);
