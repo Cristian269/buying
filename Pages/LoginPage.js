@@ -20,10 +20,6 @@ class LoginPage {
  
 
     async login(email, password) {
-    //await this.accountlink.click();
-    //await this.tologinpagelink.click();
-    //expect(this.page.url()).toContain('login'); // Ensure we are on the login page
- 
     await this.email.fill(email);
     await this.password.fill(password);
     await this.loginButton.click();

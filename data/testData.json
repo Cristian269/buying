@@ -3,9 +3,18 @@
   {
     "firstName": "Victor manuel",
     "lastName": "Diaz",
-    "email": "vistorimanul13171899@example.com",
+    "email": "vistormanu@yopmail.com",
     "password": "password123",
-    "telephone": "1234567890"
+    "telephone": "55566677"
+       
+  },
+  
+  {
+    "firstName": "Samuel",
+    "lastName": "Perez",
+    "email": "samuelperez@yopmail.com",
+    "password": "password123",
+    "telephone": "011666555"
        
   }
 ]
