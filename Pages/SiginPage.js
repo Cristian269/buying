@@ -1,5 +1,7 @@
 import { expect } from '@playwright/test';
+import { faker } from '@faker-js/faker/locale/es';
 import log from 'loglevel';
+
 class SiginPage {
   constructor(page) {
     this.page = page;
@@ -17,7 +19,7 @@ class SiginPage {
     this.gotohome = page.locator('#content').getByRole('heading', { name: 'Featured' });
     this.expectedform = page.getByText('Your Personal Details')
     this.buttonform = page.getByRole('button', { name: 'Continue' });
-    //getByText('Your Personal Details')
+    
   }
 
   async goto() {
@@ -29,31 +31,25 @@ class SiginPage {
     await  this.register.click();
     log.info('Attempting to log in with email:', this.email);
   }
+  
 
-  /*async Fillform(data) {
-    await this.firstName.fill(data.firstName);
-    await this.lastName.fill(data.lastName);
-    await this.email.fill(data.email);
-    await this.telephone.fill(data.telephone);
-    await this.password.fill(data.password);
-    await this.passwordconfirm.fill(data.password);
-    await this.suscribecheck.check();
-    await this.privacycheck.click();
-    await this.buttonform.click(); 
-    log.info('Form filled', data.email);
-  }*/
   async Fillform(data) {
     await this.firstName.fill(data.firstName);
+    await log.info('Filling first name:', data.firstName);
     await this.lastName.fill(data.lastName);
+    await log.info('Filling last name:', data.lastName);
     await this.email.fill(data.email);
+    await log.info('Filling email:', data.email);
     await this.telephone.fill(data.telephone);
+    await log.info('Filling telephone:', data.telephone);
     await this.password.fill(data.password);
+    await log.info('Filling password:', data.password);
     await this.passwordconfirm.fill(data.password);
     await this.suscribecheck.check();
     await this.privacycheck.click();
     await this.buttonform.click(); 
-    log.info('Form filled', data.email);
   }
+  
 }
 
 export { SiginPage };

@@ -15,6 +15,7 @@
     "@types/node": "^22.13.9"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
     "loglevel": "^1.9.2"
   }
 }

@@ -10,11 +10,16 @@ class LoginPage {
     this.logoutButton = page.getByRole('link', { name: 'Logout' });
     this.accountlink = page.getByRole ('link',{name:' My Account'});
     this.tologinpagelink = page.getByRole('link',{ name:'Login' });
-    log.setLevel('info'); // Set log level to info
+    this.loginoption =page.locator('#top-links').getByRole('link', { name: 'Login' });
+  }
+  async loginPage() {
+    log.info('Login page loaded');
+    log.setLevel('info'); 
 }
     async gotologinPage() {
     await this.accountlink.click();
-    await this.tologinpagelink.click();
+    await this.loginoption.click(); 
+    log.info('Account link clicked');
     log.info('Navigated to login page');
     }
  
@@ -27,9 +32,12 @@ class LoginPage {
   }
 
   async logout() {
-    log.info('Attempting to log out');
-    await this.logoutButton.click();
-    log.info('Logout button clicked');
+    await this.page.pause();
+    this.accountlink.click();
+    log.info('My Account link clicked');
+    this.logoutButton.click();
+    log.info('Logout link clicked');
+   
   }
 }
 
